@@ -1,0 +1,540 @@
+//1) Given number greater than 20 or not
+
+#include <stdio.h>
+int main()
+{
+    int n;
+    printf("Enter a Number:");
+    scanf("%d",&n);
+    if(n>20){
+        printf("%d is greater than 20",n);
+    }
+    else {
+        printf("%d is smaller than 20",n);
+    }
+}
+
+//2)Given number is positive or negative or zero
+
+#include<stdio.h>
+int main(){
+    int n;
+    printf("Enter a Number:");
+    scanf("%d",&n);
+    if(n>0){
+        printf("%d is a positive number",n);
+    }
+    else if(n<0){
+        printf("%d is a negative number",n);
+    }
+    else{
+        printf("%d is zero",n);
+    }
+}
+
+//3)Leap year or not
+#include<stdio.h>
+int main()
+{
+    int year;
+    scanf("%d",&year);
+    printf("enter the year:%d",year);
+    if((year%4==0)&&(year%400==0)&&(year%100!=0)){
+        printf("it is a leap year");
+    }
+    else{
+        printf("it is not a leap year");
+    }
+    return 0;
+}
+
+
+//4)Adding the digits in a number
+
+#include<stdio.h>
+int addDigits(int num){
+    while(num>=10){
+        int sum=0;
+        while(num>0){
+            sum+=num%10;
+            num/=10;
+            }
+        num=sum;
+    }
+    printf("%d",num);
+}
+int main(){
+    addDigits(45);
+}
+
+//5)Finding Prime numbers 
+
+#include<stdio.h>
+int main(){
+    int n,i,count=0;
+    printf("Enter a Number:");
+    scanf("%d",&n);
+    for(int i=1;i<n;i++){
+        if(n%i==0){
+            count++;
+        }
+    }
+    if(count==1){
+        printf("%d is a prime Number",n);
+    }
+    else {
+        printf("%d is not a prime Number",n);
+    }
+}
+
+//6)Days finding using Switch Case
+
+#include<stdio.h>
+int main(){
+    int n;
+    printf("Enter a Number:");
+    scanf("%d",&n);
+    switch(n)
+    {
+        case 1:
+         printf("SUNDAY");
+         break;
+         case 2 :
+         printf("MONDAY");
+         break;
+         case 3:
+         printf("TUESDAY");
+         break;
+         case 4:
+         printf("WEDNESDAY");
+         break;
+         case 5:
+         printf("THURSDAY");
+         break;
+         case 6:
+         printf("FRIDAY");
+         break;
+         case 7:
+         printf("SATURDAY");
+         break;
+         default:
+         printf("INVALID INPUT");
+    }
+    return 0;
+}
+
+//7)Fibonaaci Series
+
+#include<stdio.h>
+int main(){
+    int n;
+    printf("Enter a Number: ");
+    scanf("%d",&n);
+    int a=0,b=1,i;
+    printf("%d %d ",a,b);
+    for(i=3;i<=n;i++){
+        int c=a+b;
+        printf("%d ",c);
+        a=b;
+        b=c;
+    }
+    return 0;
+}
+
+//8)Minimum number of cuts for equal parts of circle
+
+#include <stdio.h>
+
+int main() {
+    int n;
+
+    printf("Enter number of slices: ");
+    scanf("%d", &n);
+
+    if (n == 1) {
+        printf("Minimum cuts = 0\n");
+    }
+    else if (n % 2 == 0) {
+        printf("Minimum cuts = %d\n", n / 2);
+    }
+    else {
+        printf("Minimum cuts = %d\n", n);
+    }
+
+    return 0;
+}
+
+//9)Game for predicting the computer generated number
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int number, guess;
+
+    srand(time(0));             
+    number = rand() % 100 + 1;    
+
+    printf("Guess a number between 1 and 100: ");
+    guess=0;
+    while(guess!=number){
+    printf("Enter your guess:");
+    scanf("%d", &guess);
+    if(guess>number){
+        printf("Too high!try again\n");
+    }
+    else if(guess<number){
+        printf("Too low !try again\n");
+    }
+    else{
+        printf("Correct!you guessed the number\n");
+    }
+}
+}
+
+//10)Adding the even and odd number in array
+
+#include <stdio.h>
+int main() {
+     int n,even=0,odd=0;
+     scanf("%d",&n);
+     int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+     for(int i=0;i<n;i++){
+         if(arr[i]%2==0){
+             even=even+arr[i];
+         }
+         else{
+             odd=odd+arr[i];
+         }
+     }
+    printf("%d %d",even,odd);
+    return 0;
+    
+}
+
+//11)Moving zeros in an array
+
+#include <stdio.h>
+void moveZeros(int *nums, int numsSize) {
+    int j = 0;
+
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] != 0) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            j++;
+        }
+    }
+}
+
+int main() {
+    int nums[] = {0, 1, 0, 3, 12};
+    int size = sizeof(nums) / sizeof(nums[0]);
+
+    moveZeros(nums, size);
+
+    printf("Output: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", nums[i]);
+    }
+
+    return 0;
+}
+
+//12)Palindrome of a number
+
+#include<stdio.h>
+int main()
+{
+    int n,reverse=0,dig,temp;
+    scanf("%d",&n);
+    temp=n;
+    while(n>0){
+        dig =n%10;
+        rev=rev*10+dig;
+        n=n/10;
+    }
+    if(reverse==temp){
+        printf("it is a palindrome");
+    }
+    else{
+        printf("it is not a palindrome");
+    }
+    return 0;
+}
+
+//13)Reverse the array
+
+#include <stdio.h>
+int main() {
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    for(int i=n-1;i>=0;i--){
+        printf("%d ",arr[i]);
+    }
+    
+    return 0;   
+}
+
+//14)Sum of elements in an array
+
+#include <stdio.h>
+int main() {
+   int n;
+   scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    int sum=0;
+    for(int i=0;i<n;i++){
+        sum=sum+arr[i];
+    }
+    printf("%d",sum);
+    return 0;
+}
+
+//15)sum of even and odd elements and even and odd index elements 
+
+#include <stdio.h>
+int main() {
+     int n,even=0,odd=0,evenin=0,oddin=0;
+     scanf("%d",&n);
+     int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+     for(int i=0;i<n;i++){
+         if(arr[i]%2==0){
+             even=even+arr[i];
+         }
+         else{
+             odd=odd+arr[i];
+         }
+     }
+    for(int i=0;i<n;i++){
+        if(i%2==0){
+            evenin=evenin+arr[i];
+        }
+        else
+            oddin=oddin+arr[i];
+    }
+    printf("%d %d %d %d",even,odd,evenin,oddin);
+    return 0;
+    
+}
+
+//16)Descending stars
+
+#include <stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    for(int i=1;i<=n;i++){
+        for(int j=i;j<=n;j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+//17)Staircase of stars
+
+#include <stdio.h>
+int main(){
+    int n;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        for(int j=0;j<=i;j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+//18)Rectangle Pattern
+
+#include <stdio.h>
+int main(){
+    int a,b;
+    scanf("%d %d",&a,&b);
+    for(int i=1;i<=a;i++){
+        for(int j=1;j<=b;j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+//19)Armstrong Number
+
+#include<stdio.h>
+int main(){
+    int n,sum=0,digit,temp;
+    scanf("%d",&n);
+    temp=n;
+    while(n>0){
+        digit=n%10;
+        sum=sum+(digit*digit*digit);
+        n=n/10;
+        }
+        if(sum == temp){
+        printf("it is an armstrong number");
+        }
+        else{
+        printf("it is not an armstrong number");
+        }
+        return 0;
+}
+
+//20)Count of common factors
+
+#include<stdio.h>
+int main()
+{
+    int a,b,i,count=0;
+    scanf("%d %d",&a,&b);
+    for(i=1;i <= a && i <= b;i++){
+        if(a % i == 0 && b % i == 0){
+            count++;
+        }
+    }
+    printf("count of common factors:%d",count);
+    return 0;
+}
+
+//21)Tribonaaci Series
+
+#include <stdio.h>
+int main() {
+    int n, a = 0, b = 1, c=1,d, i;
+     scanf("%d", &n);
+      for (i = 3; i <= n; i++) {
+        d= a + b+c;
+        printf(" %d",d);
+        a = b;
+        b = c;
+        c = d;
+    }
+
+    return 0;
+}
+
+//22)Filled Alphabet pyramid
+
+#include <stdio.h>
+
+int main() {
+    int N;
+    scanf("%d", &N);
+
+    for (int i = 1; i <= N; i++) {
+
+        // Leading spaces for center alignment
+        for (int s = 1; s <= N - i; s++) {
+            printf("  ");
+        }
+
+        // Print alphabets
+        char ch = 'A';
+        for (int j = 1; j <= 2 * i - 1; j++) {
+            printf("%c ", ch);
+            ch++;
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+23)Hollow Diamond Pattern
+
+#include <stdio.h>
+
+int main() {
+    int N;
+    scanf("%d", &N);
+
+    int totalRows = 2 * N - 1;
+
+    for (int i = 1; i <= totalRows; i++) {
+        int spaces, stars;
+
+        if (i <= N) {
+            spaces = N - i;
+            stars = 2 * i - 1;
+        } else {
+            spaces = i - N;
+            stars = 2 * (totalRows - i) + 1;
+        }
+
+        // Leading spaces
+        for (int s = 0; s < spaces; s++) {
+            printf(" ");
+        }
+
+        // Hollow stars
+        if (stars == 1) {
+            printf("*");
+        } else {
+            printf("*");
+            for (int s = 0; s < stars - 2; s++) {
+                printf(" ");
+            }
+            printf("*");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+
+//24)Rectangle Pattern
+
+#include <stdio.h>
+int main(){
+    int a,b;
+    scanf("%d %d",&a,&b);
+    for(int i=1;i<=a;i++){
+        for(int j=1;j<=b;j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+//25)Descending Star Pattern
+
+#include <stdio.h>
+int main() {
+ int n,i,j;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++){
+        for(j=i;j<=n;j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+
+
+
